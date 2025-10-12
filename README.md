@@ -7,7 +7,7 @@ Some of it might migrate into separate packages sometime later.
 
 To add with uv (replace with specific version):
 ```
-uv add git+https://github.com/evtn/utilitaire --tag 0.1.0
+uv add git+https://github.com/evtn/utilitaire --tag v0.1.0
 ```
 
 **You should pin the release version because I can't promise *anything* about the API stability over the course of development (although I'll try to not break stuff around)**

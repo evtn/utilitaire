@@ -14,9 +14,9 @@ uv add git+https://github.com/evtn/utilitaire --tag 0.1.0
 
 # Modules
 
-- caser — convert strings between different cases ([full docs here](https://github.com/evtn/utilitaire/tree/lord/caser))
-- http — convenient httpx.AsyncClient wrapper and session manager ([full docs here](https://github.com/evtn/utilitaire/tree/lord/http))
-- fuzzy — fast remove-only fuzzy search implementation (e.g. for command palettes) ([full docs here](https://github.com/evtn/utilitaire/tree/lord/fuzzy))
+- caser — convert strings between different cases ([full docs here](https://github.com/evtn/utilitaire/tree/lord/utilitaire/caser))
+- http — convenient httpx.AsyncClient wrapper and session manager ([full docs here](https://github.com/evtn/utilitaire/tree/lord/utilitaire/http))
+- fuzzy — fast remove-only fuzzy search implementation (e.g. for command palettes) ([full docs here](https://github.com/evtn/utilitaire/tree/lord/utilitaire/fuzzy))
 
 # Contributing
 

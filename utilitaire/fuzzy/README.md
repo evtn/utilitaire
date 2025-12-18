@@ -1,26 +1,9 @@
 fast remove-only fuzzy search implementation (e.g. for command palettes)
 
-
 Basic usage:
 
 ```python
-from utilitaire import fuzzy_score, fuzzy_rank, fuzzy_rank_list
-
-entries = [
-    "Oh Wonder",
-    "bottle of water",
-    "AC/DC",
-    "Grand Theft Auto IV",
-    "Grand Theft Auto V",
-    "Open Settings",
-]
-
-# use fuzzy_score to get a score of matching
-print(
-    fuzzy_score("ow", entries[0]), # 1.33...
-    fuzzy_score("ow", entries[1]), # 0.8
-    fuzzy_score("ow", entries[2]), # 0
-)
+from utilitaire import fuzzy_rank, fuzzy_rank_list
 
 # use fuzzy_rank to rate arbitrary entries by one or more fields
 entries = {
@@ -33,9 +16,17 @@ print(
         "sdif",
         entries.items(),
         do_sort=True,
-        max_k=1,
     )
-) # ["someid456"]
+) # [SearchResult(haystack_id='someid456', score=697.88)]
+
+entries = [
+    "Oh Wonder",
+    "bottle of water",
+    "AC/DC",
+    "Grand Theft Auto IV",
+    "Grand Theft Auto V",
+    "Open Settings",
+]
 
 """
 fuzzy_rank_list(q, entries)
@@ -44,7 +35,9 @@ is a shorthand for
 
 fuzzy_rank(q, ((k, [k]) for k in entries))
 """
-print(fuzzy_rank_list("gtav", entries, do_sort=True)) # ['Grand Theft Auto V', 'Grand Theft Auto IV']
-print(fuzzy_rank_list("gtav", entries, do_sort=False)) # ['Grand Theft Auto IV', 'Grand Theft Auto V']
+# [SearchResult(haystack_id='Grand Theft Auto V', score=244.44), SearchResult(haystack_id='Grand Theft Auto IV', score=242.11)]
+print(fuzzy_rank_list("gtav", entries, do_sort=True)) 
+# [SearchResult(haystack_id='Grand Theft Auto IV', score=242.11), SearchResult(haystack_id='Grand Theft Auto V', score=244.44)]
+print(fuzzy_rank_list("gtav", entries, do_sort=False)) 
 
 ```

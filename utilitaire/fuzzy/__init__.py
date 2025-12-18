@@ -1,4 +1,4 @@
-from typing import Iterable, Sequence
+from typing import Any, Iterable, Sequence, TypeGuard, TypeIs
 
 from utilitaire.stringops import get_plain_chars
 
@@ -21,8 +21,31 @@ def fuzzy_rank(
 
     query = query.lower()
 
+    def filter_none[T](x: T | None) -> TypeGuard[T]:
+        return x is not None
+
+    def stringify(x: Any) -> str:
+        base = str(x)
+
+        if strip_syms:
+            base = get_plain_chars(base)
+
+        return base
+
     haystacks = [
-        (key, [str(e) for e in entries if e is not None]) for key, entries in entry_list
+        (
+            key,
+            list(
+                map(
+                    stringify,
+                    filter(
+                        filter_none,
+                        entries,
+                    ),
+                )
+            ),
+        )
+        for key, entries in entry_list
     ]
 
     if use_old:

@@ -54,9 +54,7 @@ def old_rank(
 
     for key, entries in haystacks:
         if query:
-            score = sum(
-                fuzzy_score(query, get_plain_chars(entry)) for entry in entries if entry
-            )
+            score = sum(fuzzy_score(query, entry) for entry in entries if entry)
         else:
             score = 1
 

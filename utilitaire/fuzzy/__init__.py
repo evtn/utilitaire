@@ -1,4 +1,4 @@
-from typing import Any, Iterable, Sequence, TypeGuard, TypeIs
+from typing import Any, Iterable, Sequence, TypeGuard
 
 from utilitaire.stringops import get_plain_chars
 

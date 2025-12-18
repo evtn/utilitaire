@@ -1,7 +1,5 @@
 from typing import Sequence
 
-from utilitaire.stringops import get_plain_chars
-
 from .coretypes import Haystacks, SearchResult
 
 score_tables: dict[str, int] = {}

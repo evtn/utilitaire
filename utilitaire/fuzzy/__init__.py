@@ -14,8 +14,12 @@ def fuzzy_rank(
     max_k: int | None = None,
     do_sort: bool = False,
     use_old: bool = False,
+    strip_syms: bool = False,
 ) -> Sequence[SearchResult]:
-    query = get_plain_chars(query).lower()
+    if strip_syms:
+        query = get_plain_chars(query)
+
+    query = query.lower()
 
     haystacks = [
         (key, [str(e) for e in entries if e is not None]) for key, entries in entry_list

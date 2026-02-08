@@ -41,6 +41,7 @@ class HTTPClient:
         *,
         url_params: dict[str, Any] | None = None,
         data: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
         headers: dict[str, str] | None = None,
         **request_kwargs,
     ):
@@ -53,6 +54,7 @@ class HTTPClient:
             params=url_params,
             headers=headers,
             data=data,
+            json=json,
             **request_kwargs,
         )
 
@@ -159,6 +161,7 @@ class Domain:
         *,
         url_params: dict[str, Any] | None = None,
         data: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
         headers: dict[str, str] | None = None,
         **request_kwargs,
     ):
@@ -170,6 +173,7 @@ class Domain:
             self.full_url,
             url_params=query,
             data=data,
+            json=json,
             headers=headers,
             **request_kwargs,
         )
@@ -180,6 +184,7 @@ class Domain:
         *,
         url_params: dict[str, Any] | None = None,
         data: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
         headers: dict[str, str] | None = None,
         **request_kwargs,
     ) -> Any:
@@ -187,6 +192,7 @@ class Domain:
             method,
             url_params=url_params,
             data=data,
+            json=json,
             headers=headers,
             **request_kwargs,
         )
@@ -197,6 +203,7 @@ class Domain:
         *,
         url_params: dict[str, Any] | None = None,
         data: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
         headers: dict[str, str] | None = None,
         **request_kwargs,
     ):
@@ -204,6 +211,7 @@ class Domain:
             "get",
             url_params=url_params,
             data=data,
+            json=json,
             headers=headers,
             **request_kwargs,
         )
@@ -213,6 +221,7 @@ class Domain:
         *,
         url_params: dict[str, Any] | None = None,
         data: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
         headers: dict[str, str] | None = None,
         **request_kwargs,
     ):
@@ -220,6 +229,7 @@ class Domain:
             "post",
             url_params=url_params,
             data=data,
+            json=json,
             headers=headers,
             **request_kwargs,
         )
@@ -229,12 +239,14 @@ class Domain:
         *,
         url_params: dict[str, Any] | None = None,
         data: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
         headers: dict[str, str] | None = None,
         **request_kwargs,
     ) -> Any:
         response = await self.get(
             url_params=url_params,
             data=data,
+            json=json,
             headers=headers,
             **request_kwargs,
         )
@@ -245,12 +257,14 @@ class Domain:
         *,
         url_params: dict[str, Any] | None = None,
         data: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
         headers: dict[str, str] | None = None,
         **request_kwargs,
     ) -> Any:
         response = await self.post(
             url_params=url_params,
             data=data,
+            json=json,
             headers=headers,
             **request_kwargs,
         )
